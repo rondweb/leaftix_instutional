@@ -31,9 +31,12 @@ services:
      - mariadb:./database:/var/lib/mysql
     networks:
       - app-network     
+
 volumes:
   mariadb:
+    external: true  
   wordpress:
+    external: true  
   
 networks:
   app-network:
