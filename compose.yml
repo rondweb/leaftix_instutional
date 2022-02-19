@@ -28,7 +28,7 @@ services:
       MYSQL_ROOT_PASSWORD: r8yvpE7HivnKv5k
       MYSQL_DATABASE: wordpress
     volumes:
-     - mariadb:./database:/var/lib/mysql
+     - mariadb:/var/lib/mysql
     networks:
       - app-network     
 
