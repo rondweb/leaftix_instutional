@@ -5,6 +5,7 @@ services:
     image: mysql:8.0
     container_name: db
     restart: unless-stopped
+    env_file: .env
     environment:
       - MYSQL_DATABASE=wordpress
     volumes: 
@@ -53,7 +54,7 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email sammy@example.com --agree-tos --no-eff-email --staging -d example.com -d www.example.com
+    command: certonly --webroot --webroot-path=/var/www/html --email contato@leaftix.rocks --agree-tos --no-eff-email --staging -d example.rocks -d www.leaftix.rocks
 
 volumes:
   certbot-etc:
