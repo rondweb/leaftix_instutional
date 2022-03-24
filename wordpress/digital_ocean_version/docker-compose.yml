@@ -43,7 +43,7 @@ webserver:
   volumes:
     - wordpress:/var/www/html
     - ./nginx-conf:/etc/nginx/conf.d
-    - certbot-etc:/etc/letsencrypt
+ #   - certbot-etc:/etc/letsencrypt
   networks:
     - app-network
 
@@ -59,7 +59,7 @@ webserver:
 #  command: certonly --webroot --webroot-path=/var/www/html --email contato@leaftix.rocks --agree-tos --no-eff-email --staging -d leaftix.rocks -d www.leaftix.rocks
 
 volumes:
-certbot-etc:
+#certbot-etc:
 wordpress:
 dbdata:
 
