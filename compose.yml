@@ -23,7 +23,8 @@ services:
       - app-network
   
   mariadb:
-    image: mariadb   
+    image: mariadb
+    restart: unless-stopped
     ports:
       - "3306:3306"
     expose:
