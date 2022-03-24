@@ -4,6 +4,8 @@ version: '3'
 services:
   wordpress:
     image: wordpress
+    container_name: wordpress
+    restart: unless-stopped    
     links:
       - mariadb
     ports:
@@ -11,6 +13,8 @@ services:
     environment:
       WORDPRESS_DB_PASSWORD: r8yvpE7HivnKv5k
       WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_HOST: mariadb:3306
+      WORDPRESS_DB_NAME: wordpress
     depends_on:
        - mariadb
     volumes:
