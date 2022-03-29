@@ -28,7 +28,7 @@ services:
     restart: unless-stopped
     #env_file: .env
     environment:
-      - WORDPRESS_DB_HOST=db:3306
+      - WORDPRESS_DB_HOST=db
       - WORDPRESS_DB_USER="wordpress"
       - WORDPRESS_DB_PASSWORD="5BLM8rXkYtrK38Ps"
       - WORDPRESS_DB_NAME="wordpress"
