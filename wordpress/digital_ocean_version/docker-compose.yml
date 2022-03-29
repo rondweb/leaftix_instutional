@@ -49,15 +49,15 @@ services:
     networks:
       - app-network
 
-  certbot:
-    depends_on:
-      - webserver
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      #- certbot-etc:/etc/letsencrypt
-      - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email contato@leaftix.rocks --agree-tos --no-eff-email --staging -d leaftix.rocks -d www.leaftix.rocks
+  # certbot:
+  #   depends_on:
+  #     - webserver
+  #   image: certbot/certbot
+  #   container_name: certbot
+  #   volumes:
+  #     #- certbot-etc:/etc/letsencrypt
+  #     - wordpress:/var/www/html
+  #   command: certonly --webroot --webroot-path=/var/www/html --email contato@leaftix.rocks --agree-tos --no-eff-email --staging -d leaftix.rocks -d www.leaftix.rocks
 
 volumes:
   certbot-etc:
