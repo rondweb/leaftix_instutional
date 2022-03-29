@@ -22,7 +22,7 @@ services:
     restart: unless-stopped
     env_file: .env
     environment:
-      - WORDPRESS_DB_HOST=db:3306
+      - WORDPRESS_DB_HOST=db
       - WORDPRESS_DB_USER=$MYSQL_USER
       - WORDPRESS_DB_PASSWORD=$MYSQL_PASSWORD
       - WORDPRESS_DB_NAME=wordpress
@@ -42,7 +42,7 @@ services:
     volumes:
       - wordpress:/var/www/html
       - ./nginx-conf:/etc/nginx/conf.d
-      - certbot-etc:/etc/letsencrypt
+      #- certbot-etc:/etc/letsencrypt
     networks:
       - app-network
 
@@ -52,14 +52,17 @@ services:
     image: certbot/certbot
     container_name: certbot
     volumes:
-      - certbot-etc:/etc/letsencrypt
+      #- certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email contato@leaftix.rocks --agree-tos --no-eff-email --staging -d example.rocks -d www.leaftix.rocks
+    command: certonly --webroot --webroot-path=/var/www/html --email contato@leaftix.rocks --agree-tos --no-eff-email --staging -d leaftix.rocks -d www.leaftix.rocks
 
 volumes:
   certbot-etc:
+    external: true
   wordpress:
+    external: true
   dbdata:
+    external: true
 
 networks:
   app-network:
