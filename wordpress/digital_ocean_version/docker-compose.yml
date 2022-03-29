@@ -5,15 +5,11 @@ services:
     image: mysql:8.0
     container_name: db
     restart: unless-stopped
-    ports:
-      - "3306:3306"
-    expose:
-      - "3306"    
     #env_file: .env
     environment:
       - MYSQL_DATABASE=wordpress
-      - MYSQL_ROOT_PASSWORD="5BLM8rXkYtrK38Ps"
-      - MYSQL_PASSWORD="5BLM8rXkYtrK38Ps"
+      - MYSQL_ROOT_PASSWORD=wordpress
+      - MYSQL_PASSWORD=wordpress
       - MYSQL_USER=wordpress    
     volumes:
       - dbdata:/var/lib/mysql      
@@ -31,7 +27,7 @@ services:
     environment:
       - WORDPRESS_DB_HOST=db:3306
       - WORDPRESS_DB_USER=wordpress
-      - WORDPRESS_DB_PASSWORD="5BLM8rXkYtrK38Ps"
+      - WORDPRESS_DB_PASSWORD=wordpress
       - WORDPRESS_DB_NAME=wordpress
     volumes:
       - wordpress:/var/www/html
