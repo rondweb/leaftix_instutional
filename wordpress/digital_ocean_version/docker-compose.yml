@@ -47,9 +47,12 @@ services:
 
 volumes:
   certbot-etc:
+    external: true
   wordpress:
+    external: true
   dbdata:
-
+    external: true
+    
 networks:
   app-network:
     driver: bridge  
